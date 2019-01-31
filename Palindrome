@@ -1,0 +1,36 @@
+using System;
+
+public class Palindrome
+{
+    public static bool IsPalindrome(string word)
+    {
+		char[] wordArr= word.ToLower().ToCharArray();
+		int midPoint=wordArr.Length/2;
+		int endPoint=wordArr.Length;
+		int counter = 0;
+		for (int i =0;i<midPoint;i++)
+		{
+			endPoint --;
+			if (wordArr[i] == wordArr[endPoint])
+			{
+				counter++;
+			}
+			else
+			{
+				Console.WriteLine("Not a Palindrome");
+				break;
+			}
+		}
+		if (counter == midPoint)
+		{
+			Console.WriteLine(word+" "+"is a palindrome");
+			return true;
+		}
+		return false;
+    }
+
+    public static void Main(string[] args)
+    {
+        Console.WriteLine(Palindrome.IsPalindrome("Deleveled"));	
+    }
+}
